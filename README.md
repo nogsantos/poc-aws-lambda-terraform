@@ -6,6 +6,8 @@ Deploy lambda functions using Terraform.
 
 Default region is `sa-east-1` (São Paulo) defined on `main.tf` file.
 
+Has been created a simple Python function for this example.
+
 ### Init
 
 Initialize the working directory. Install project dependencies.
@@ -16,12 +18,20 @@ $ terraform init
 
 ## Workflow
 
+### Validate
+
+Validates the Terraform files before
+
+```bash
+$ terraform validate
+```
+
 ### Plan
 
 Generate and show an execution plan
 
 ```bash
-$ terraform apply -auto-approve
+$ terraform plan
 ```
 
 ### Apply
