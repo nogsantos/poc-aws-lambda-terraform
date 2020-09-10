@@ -4,9 +4,19 @@ Deploy lambda functions using Terraform.
 
 ## Setup
 
-Default region is `sa-east-1` (São Paulo) defined on `main.tf` file.
+Regions are defined by current workspace, and by default, they are configured on variables file.
 
 Has been created a simple Python function for this example.
+
+### Profile
+
+Define the profile access on `~/.aws/credentials`, ex.:
+
+```profile
+[lambidas]
+aws_access_key_id = <KEY>
+aws_secret_access_key = <ACCESS-KEY>
+```
 
 ### Init
 
@@ -15,6 +25,24 @@ Initialize the working directory. Install project dependencies.
 ```bash
 $ terraform init
 ```
+
+### Workspace
+
+Workspaces enable apply same configurations in differents cenarios like production, homologation, development.
+
+**View a list of availables workspaces**
+
+```bash
+$ terrafor workspace list 
+```
+
+**Create a new workspace**
+
+```bash
+$ terraform workspace new <workspace-name>
+```
+
+Use `terraform.workspace` on code to get current workspace
 
 ## Workflow
 
@@ -40,4 +68,12 @@ Builds or changes infrastructure. Persist current state changes to local and rem
 
 ```bash
 $ terraform apply -auto-approve
+```
+
+### Destroy
+
+Destroy created managed infrastructure
+
+```bash
+$ terraform destroy -auto-approve
 ```
